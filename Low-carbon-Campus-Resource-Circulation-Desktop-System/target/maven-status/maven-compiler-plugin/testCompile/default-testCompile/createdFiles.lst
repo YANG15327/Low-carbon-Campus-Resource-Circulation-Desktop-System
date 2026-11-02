@@ -1,0 +1,8 @@
+com\campus\recycle\service\ItemServiceTest.class
+com\campus\recycle\dao\UserDaoTest.class
+com\campus\recycle\dao\ItemDaoTest.class
+com\campus\recycle\TestDatabaseSupport.class
+com\campus\recycle\service\CategoryServiceTest.class
+com\campus\recycle\dao\CategoryDaoTest.class
+com\campus\recycle\service\UserServiceTest.class
+com\campus\recycle\util\PasswordUtilTest.class
