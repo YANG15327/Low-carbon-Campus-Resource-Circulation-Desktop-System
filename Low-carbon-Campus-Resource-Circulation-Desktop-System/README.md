@@ -20,8 +20,9 @@ Java 17 + Swing + SQLite（JDBC），Maven 构建，最终可打包为可独立�
     │   ├── service/               # 业务逻辑层
     │   ├── util/                  # DBManager(单例)/PasswordUtil/Validator
     │   ├── exception/             # 统一业务异常体系
-    │   └── db/                    # DatabaseInitializer（建表 + 种子数据）
-    └── test/java/com/campus/recycle/   # JUnit 5 单元测试
+    │   ├── db/                    # DatabaseInitializer（建表 + 种子数据）
+    │   └── ui/                    # Swing 启动、登录、物品列表与编辑
+    └── test/java/com/campus/recycle/   # JUnit 5 单元及集成测试
 ```
 
 ## 分层架构
@@ -40,6 +41,9 @@ mvn test
 
 # 打包
 mvn package
+
+# 启动桌面应用
+mvn exec:java
 ```
 
 默认数据库文件：`campus_recycle.db`（首次启动由 `DatabaseInitializer` 自动建表，
@@ -49,5 +53,11 @@ mvn package
 
 - [x] 迭代 1：需求规格、系统设计（UML）、数据库设计、小组分工
 - [x] 迭代 2：核心业务模块（用户/物品/分类）、JDBC 数据访问层、37 个 JUnit 用例
-- [ ] 迭代 3：Swing GUI、流转/评价/统计模块、集成测试
+- [ ] 迭代 3：登录/注册、物品检索与发布管理 GUI；用户/物品/分类服务装配及集成测试已完成。流转、评价、统计和管理后台仍待实现
 - [ ] 迭代 4：重构优化、打包可执行 Jar、报告/PPT/视频
+
+## 当前界面
+
+启动后可使用默认管理员 `admin / admin123` 登录，或注册学生账号。主界面支持按关键词、
+分类、状态和价格区间筛选物品，并可发布、编辑、下架本人发布的物品及查看个人发布列表。
+数据写入本地 SQLite 数据库 `campus_recycle.db`。

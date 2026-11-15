@@ -53,6 +53,13 @@ class ItemServiceTest extends TestDatabaseSupport {
     }
 
     @Test
+    void publishRejectsInfinitePrice() {
+        assertThrows(ValidationException.class,
+                () -> itemService.publish(sellerId, categoryId, "物品", "",
+                        Double.POSITIVE_INFINITY, List.of()));
+    }
+
+    @Test
     void publishRejectsMissingCategory() {
         assertThrows(NotFoundException.class,
                 () -> itemService.publish(sellerId, 9999, "物品", "", 10.0, List.of()));

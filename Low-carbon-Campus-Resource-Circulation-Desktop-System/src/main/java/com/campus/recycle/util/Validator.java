@@ -48,8 +48,8 @@ public final class Validator {
 
     /** 校验价格：非 NaN 且非负。 */
     public static void requirePrice(double price) {
-        if (Double.isNaN(price) || price < 0) {
-            throw new ValidationException("价格必须为非负数值");
+        if (!Double.isFinite(price) || price < 0) {
+            throw new ValidationException("价格必须为有限的非负数值");
         }
     }
 
